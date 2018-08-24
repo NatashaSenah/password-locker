@@ -14,3 +14,8 @@ class Login:
         save_login method saves user objects into login_list
         '''
         Login.login_list.append(self)
+    def delete_login(self):
+        '''
+        delete_login method deletes a saved login from the login_list
+        '''
+        Login.login_list.remove(self)

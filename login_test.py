@@ -43,7 +43,16 @@ class TestLogin(unittest.TestCase):
         test_login = Login("Test","user","0711223344","test@user.com","password")
         test_login.save_login()
         self.assertEqual(len(Login.login_list),2)
+    def test_delete_login(self):
+            '''
+            test_delete_login to test if we can remove a login from our login list
+            '''
+            self.new_user.save_login()
+            test_login = Login("Test","user","0711223344","test@user.com","password")
+            test_login.save_login()
 
+            self.new_user.delete_login()
+            self.assertEqual(len(Login.login_list),1)
 
 if __name__ == '__main__':
     unittest.main()
