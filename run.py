@@ -47,3 +47,9 @@ class Login:
                     return True
 
         return False
+    @classmethod
+    def display_login(cls):
+        '''
+        method that returns the login login_list
+        '''
+        returns cls.login_list    

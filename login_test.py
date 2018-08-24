@@ -74,6 +74,12 @@ class TestLogin(unittest.TestCase):
         login_exists = Login.login_exist("0711223344")
 
         self.assertTrue(login_exists)
+    def ef test_display_all_logins(self):
+        '''
+        method that returns a list of all login saved
+        '''
+
+        self.assertEqual(Login.display_login(),Login.login_list)
 
 if __name__ == '__main__':
     unittest.main()
