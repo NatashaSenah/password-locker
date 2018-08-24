@@ -33,3 +33,17 @@ class Login:
         for login in cls.login_list:
             if login.phone_number == number:
                 return login
+    @classmethod
+    def login_exist(cls,number):
+        '''
+        Method that checks if a login exists from the login list.
+        Args:
+            number: Phone number to search if it exists
+        Returns :
+            Boolean: True or false depending if the contact exists
+        '''
+        for login in cls.login_list:
+            if login.phone_number == number:
+                    return True
+
+        return False
