@@ -13,7 +13,11 @@ class TestLogin(unittest.TestCase):
         '''
         self.new_user = Login("Sally","Wanjiru","0711223344","sallyshick@gmail.com","1234")
 
-
+    def tearDown(self):
+            '''
+            tearDown method that does clean up after each test case has run.
+            '''
+            Login.login_list = []
     def test_init(self):
         '''
         test_init test case to test if the object is initialized properly
@@ -30,15 +34,15 @@ class TestLogin(unittest.TestCase):
         '''
         self.new_user.save_login()
         self.assertEqual(len(Login.login_list),1)
-    def test_save_multiple_contact(self):
+    def test_save_multiple_login(self):
         '''
-        test_save_multiple_contact to check if we can save multiple contact
-        objects to our contact_list
+        test_save_multiple_login to check if we can save multiple login
+        objects to our login_list
         '''
-        self.new_contact.save_contact()
-        test_contact = Contact("Test","user","0712345678","test@user.com") # new contact
-        test_contact.save_contact()
-        self.assertEqual(len(Contact.contact_list),2)
+        self.new_user.save_login()
+        test_login = Login("Test","user","0711223344","test@user.com","password")
+        test_login.save_login()
+        self.assertEqual(len(Login.login_list),2)
 
 
 if __name__ == '__main__':
