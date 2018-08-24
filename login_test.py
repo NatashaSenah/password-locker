@@ -84,7 +84,7 @@ class TestLogin(unittest.TestCase):
 
     def test_copy_email(self):
         '''
-        Test to confirm that we are copying the email address from a found contact
+        Test to confirm that we are copying the email address from a found login
         '''
 
         self.new_user.save_login()

@@ -1,3 +1,4 @@
+import pyperclip
 class Login:
     """
     Class that generates new instances of login
@@ -48,8 +49,15 @@ class Login:
 
         return False
     @classmethod
-    def display_login(cls):
+    def copy_email(cls,number):
+        login_found=Login.find_by_number(number)
+        pyperclip.copy(login_found.email)
         '''
         method that returns the login_list
         '''
         return cls.login_list
+    def display_login():
+        '''
+        Function that returns all the saved contacts
+        '''
+        return Login.login_list
