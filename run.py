@@ -50,6 +50,6 @@ class Login:
     @classmethod
     def display_login(cls):
         '''
-        method that returns the login login_list
+        method that returns the login_list
         '''
-        returns cls.login_list    
+        return cls.login_list

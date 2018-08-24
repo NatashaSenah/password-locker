@@ -1,4 +1,5 @@
 import unittest
+import pyperclip
 from run import Login
 class TestLogin(unittest.TestCase):
     '''
@@ -74,12 +75,21 @@ class TestLogin(unittest.TestCase):
         login_exists = Login.login_exist("0711223344")
 
         self.assertTrue(login_exists)
-    def ef test_display_all_logins(self):
+    def test_display_all_logins(self):
         '''
         method that returns a list of all login saved
         '''
 
         self.assertEqual(Login.display_login(),Login.login_list)
 
+    def test_copy_email(self):
+        '''
+        Test to confirm that we are copying the email address from a found contact
+        '''
+
+        self.new_user.save_login()
+        Login.copy_email("0711223344")
+
+        self.assertEqual(self.new_user.email,pyperclip.paste())
 if __name__ == '__main__':
     unittest.main()
