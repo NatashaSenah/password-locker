@@ -44,23 +44,36 @@ class TestLogin(unittest.TestCase):
         test_login.save_login()
         self.assertEqual(len(Login.login_list),2)
     def test_delete_login(self):
-            '''
-            test_delete_login to test if we can remove a login from our login list
-            '''
-            self.new_user.save_login()
-            test_login = Login("Test","user","0711223344","test@user.com","password")
-            test_login.save_login()
+        '''
+        test_delete_login to test if we can remove a login from our login list
+        '''
+        self.new_user.save_login()
+        test_login = Login("Test","user","0711223344","test@user.com","password")
+        test_login.save_login()
 
-            self.new_user.delete_login()
-            self.assertEqual(len(Login.login_list),1)
-    def test_find_contact_by_number(self):
-             '''
-             test tocheck if we can find a contact by phone number and display information
-             '''
-            self.new_contact.save_contact()
-            test_contact=Contact("Test","User","0711223344","test@user.com","password")
-            test_contact.save_contact()
-            found_contact=Contact.find_by_number("0711223344")
-            self.assertEqual(found_contact.email,test_contact.email) 
+        self.new_user.delete_login()
+        self.assertEqual(len(Login.login_list),1)
+    def test_find_login_by_number(self):
+        '''
+        test tocheck if we can find a user by phone number and display information
+        '''
+        self.new_user.save_login()
+        test_login=Login("Test","User","07111223344","test@user.com","password")
+        test_login.save_login()
+        found_login=Login.find_by_number("07111223344")
+        self.assertEqual(found_login.email,test_login.email)
+    def test_login_exists(self):
+        '''
+        test to check if we can return a Boolean  if we cannot find the contact.
+        '''
+
+        self.new_user.save_login()
+        test_login = Login("Test","user","0711223344","test@user.com","password")
+        test_login.save_login()
+
+        login_exists = Login.login_exist("0711223344")
+
+        self.assertTrue(login_exists)
+
 if __name__ == '__main__':
     unittest.main()

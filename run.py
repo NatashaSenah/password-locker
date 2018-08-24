@@ -19,3 +19,17 @@ class Login:
         delete_login method deletes a saved login from the login_list
         '''
         Login.login_list.remove(self)
+    @classmethod
+    def find_by_number(cls,number):
+        '''
+        Method that takes in a number and returns a login that matches that number.
+
+        Args:
+        number: Phone number to search for
+        Returns :
+        Login of person that matches the number.
+        '''
+
+        for login in cls.login_list:
+            if login.phone_number == number:
+                return login
