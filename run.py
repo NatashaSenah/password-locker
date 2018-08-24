@@ -1,3 +1,4 @@
+#!/usr/bin/env python3.6
 import pyperclip
 class Login:
     """
@@ -49,15 +50,73 @@ class Login:
 
         return False
     @classmethod
-    def copy_email(cls,number):
+    def copy_credentials(cls,number):
         login_found=Login.find_by_number(number)
-        pyperclip.copy(login_found.email)
+        pyperclip.copy(login_found.credentials)
         '''
         method that returns the login_list
         '''
         return cls.login_list
     def display_login():
         '''
-        Function that returns all the saved contacts
+        Function that returns all the saved login
         '''
         return Login.login_list
+    def create_login(fname,lname,phone,email,password):
+        '''
+        Function to create a new login
+        '''
+        new_login = Login(fname,lname,phone,email,password)
+        return new_login
+    def save_login(login):
+        '''
+        Function to save login
+        '''
+        login.save_login()
+    def del_login(login):
+        '''
+        Function to delete login
+        '''
+        login.delete_contact()
+    def find_login(number):
+        '''
+        Function that finds a login by number and returns the login
+        '''
+        return Login.find_by_number(number)
+    def check_existing_login(number):
+        '''
+        Function that check if a contact exists with that number and return a Boolean
+        '''
+        return Login.login_exist(number)
+
+    def display_login():
+        '''
+        Function that returns all the saved login
+        '''
+        return Login.display_login()
+    def main():
+        print("Hello welcome to twitter.")
+        user_name=input()
+        print(f"Hello{user_name}.Login")
+        print('\n')
+        while True:
+            print("Use these short codes:ca -create new account,da -display accounts,fa -find an account,ex -exit the account")
+            short_code=input().lower()
+            if short_code=='ca':
+                print("New Account")
+                print("-"*10)
+                print("First name .....")
+                f_name=input()
+                print("Last name....")
+                l_name=input()
+                print("Phone number....")
+                p-number=input()
+                print("Email address....")
+                e-address=input()
+                print("Password....")
+                print("-"*8)
+                save_login(create_login(f_name,l_name,p_number,e_address,password))
+                print('\n')
+                print(f"New User{f_name}{l_name}created")
+                print('\n')
+                elif short_code==

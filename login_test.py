@@ -56,7 +56,7 @@ class TestLogin(unittest.TestCase):
         self.assertEqual(len(Login.login_list),1)
     def test_find_login_by_number(self):
         '''
-        test tocheck if we can find a user by phone number and display information
+        test to check if we can find a user by phone number and display information
         '''
         self.new_user.save_login()
         test_login=Login("Test","User","07111223344","test@user.com","password")
