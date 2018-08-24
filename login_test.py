@@ -23,6 +23,22 @@ class TestLogin(unittest.TestCase):
         self.assertEqual(self.new_user.phone_number,"0711223344")
         self.assertEqual(self.new_user.email,"sallyshick@gmail.com")
         self.assertEqual(self.new_user.password,"1234")
+    def test_save_login(self):
+        '''
+        test_save_login test case to test if the login object is saved into
+         the login list
+        '''
+        self.new_user.save_login()
+        self.assertEqual(len(Login.login_list),1)
+    def test_save_multiple_contact(self):
+        '''
+        test_save_multiple_contact to check if we can save multiple contact
+        objects to our contact_list
+        '''
+        self.new_contact.save_contact()
+        test_contact = Contact("Test","user","0712345678","test@user.com") # new contact
+        test_contact.save_contact()
+        self.assertEqual(len(Contact.contact_list),2)
 
 
 if __name__ == '__main__':
