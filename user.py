@@ -39,7 +39,7 @@ def main():
     print(f"Hello{user_name}.Login")
     print('\n')
     while True:
-        print("Use these short codes:ca -create new account,da -display accounts,fa -find an account,pa -password,ex -exit the account")
+        print("Use these short codes:ca -create new account,da -display accounts,fa -find an account,pa -login,ex -exit the account")
         short_code=input().lower()
         if short_code=='ca':
             print("New Account")
