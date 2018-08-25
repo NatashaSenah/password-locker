@@ -1,4 +1,5 @@
-# from user import Login
+#!/usr/bin/env python3.6
+
 from run import Login
 def create_login(fname,lname,phone,email,password):
     '''
@@ -11,22 +12,22 @@ def save_login(login):
     Function to save login
     '''
     login.save_login()
-# def del_login(login):
-#     '''
-#     Function to delete login
-#     '''
-#     login.delete_contact()
-# def find_user(number):
-#     '''
-#     Function that finds a login by number and returns the login
-#     '''
-#     return Login.find_by_number(number)
-# def check_existing_user(number):
-#     '''
-#     Function that check if a contact exists with that number and return a Boolean
-#     '''
-#     return Login.login_exist(number)
-#
+def del_login(login):
+    '''
+    Function to delete login
+    '''
+    login.delete_contact()
+def find_user(number):
+    '''
+    Function that finds a login by number and returns the login
+    '''
+    return Login.find_by_number(number)
+def check_existing_user(number):
+    '''
+    Function that check if a contact exists with that number and return a Boolean
+    '''
+    return Login.login_exist(number)
+
 def display_accounts():
     '''
     Function that returns all the saved login
@@ -38,7 +39,7 @@ def main():
     print(f"Hello{user_name}.Login")
     print('\n')
     while True:
-        print("Use these short codes:ca -create new account,da -display accounts,ta -save account,ra -password,ex -exit the account")
+        print("Use these short codes:ca -create new account,da -display accounts,fa -find an account,pa -login,ex -exit the account")
         short_code=input().lower()
         if short_code=='ca':
             print("New Account")
@@ -69,28 +70,27 @@ def main():
                 print('\n')
                 print("You dont seem to have any account saved yet")
                 print('\n')
-        elif short_code=='ta':
-            print("Enter your account name")
+        elif short_code=='fa':
+            print("Enter the number you want to search for")
             search_number=input()
-            if check_existing_name(search_name):
-                search_user=find_user(search_name)
+            if check_existing_user(search_number):
+                search_user=find_user(search_number)
                 print(f"{search_user.first_name}{search_user.last_name}")
-                print('-' * 9)
+                print('-' * 20)
                 print(f"Phone number.......{search_user.phone_number}")
                 print(f"Email address.......{search_user.email}")
             else:
-                print("That username does not exist")
-        elif short_code=='ra':
-            print("Enter your password")
+                print("That contact does not exist")
+        elif short_code=='pa':
+            print("Enter the login")
             search_login=input()
             if check_existing_user(search_login):
                 search_user=find_user(search_login)
                 print(f"{search_user.first_name}")
-                print('-'*4)
                 print(f"Phone number.....{serch_user.phone_number}")
                 print(f"Email address....{search_user.email}")
             else:
-                print("That password does not exist")
+                print("That login does not exist")
 
         elif short_code == "ex":
             print("Bye .......")
@@ -99,4 +99,3 @@ def main():
             print("I really didn't get that. Please use the short codes")
 if __name__=='__main__':
     main()
-s
