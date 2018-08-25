@@ -82,16 +82,15 @@ def main():
             else:
                 print("That contact does not exist")
         elif short_code=='pa':
-            print("Enter the password")
-            search_password=input()
-            if check_existing_user(search_password):
-                search_user=find_user(search_password)
+            print("Enter the login")
+            search_login=input()
+            if check_existing_user(search_login):
+                search_user=find_user(search_login)
                 print(f"{search_user.first_name}")
-                print('-'*8)
                 print(f"Phone number.....{serch_user.phone_number}")
                 print(f"Email address....{search_user.email}")
             else:
-                print("That password does not exist")
+                print("That login does not exist")
 
         elif short_code == "ex":
             print("Bye .......")
