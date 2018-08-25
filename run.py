@@ -100,7 +100,7 @@ class Login:
         print(f"Hello{user_name}.Login")
         print('\n')
         while True:
-            print("Use these short codes:ca -create new account,da -display accounts,fa -find an account,ex -exit the account")
+            print("Use these short codes:ca -create new account,da -display accounts,fa -find an account,pa -password,ex -exit the account")
             short_code=input().lower()
             if short_code=='ca':
                 print("New Account")
@@ -110,13 +110,53 @@ class Login:
                 print("Last name....")
                 l_name=input()
                 print("Phone number....")
-                p-number=input()
+                p_number=input()
                 print("Email address....")
-                e-address=input()
+                e_address=input()
                 print("Password....")
                 print("-"*8)
                 save_login(create_login(f_name,l_name,p_number,e_address,password))
                 print('\n')
                 print(f"New User{f_name}{l_name}created")
                 print('\n')
-                elif short_code==
+            elif short_code== 'da':
+                if display_accounts():
+                    print("Twitter,Facebook,Instagram")
+                    print('\n')
+                    for account in display_accounts:
+                        print(f"{user.first_name}{user.last_name}.....{user.phone_number}")
+                        print('\n')
+                else:
+                    print('\n')
+                    print("You dont seem to have any account saved yet")
+                    print('\n')
+            elif short_code=='fa':
+                print("Enter the number you want to search for")
+                search_number=input()
+                if check_existing_user(search_number):
+                    search_user=find_user(search_number)
+                    print(f"{search_user.first_name}{search_user.last_name}")
+                    print('-' * 20)
+                    print(f"Phone number.......{search_user.phone_number}")
+                    print(f"Email address.......{search_user.email}")
+                else:
+                    print("That contact does not exist")
+            elif short_code=='pa':
+                print("Enter the password")
+                search_password=input()
+                if check_existing_user(search_password):
+                    search_user=find_user(search_password)
+                    print(f"{search_user.first_name}")
+                    print('-'*8)
+                    print(f"Phone number.....{serch_user.phone_number}")
+                    print(f"Email address....{search_user.email}")
+                else:
+                    print("That password does not exist")
+
+            elif short_code == "ex":
+                print("Bye .......")
+                break
+            else:
+                print("I really didn't get that. Please use the short codes")
+if __name__=='__main__':
+    main()
