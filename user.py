@@ -12,7 +12,7 @@ def save_login(login):
     '''
     login.save_login()
 
-def createacc(username,password):
+def create(username,password):
     new_user = AddUser(username,password)
     return new_user
 
