@@ -1,6 +1,6 @@
 import unittest
 import pyperclip
-from run import Login
+from user import Login
 class TestLogin(unittest.TestCase):
     '''
     Test class that defines test cases for the login class behaviours.

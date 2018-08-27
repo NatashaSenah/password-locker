@@ -8,7 +8,7 @@ This is a project that will enable users to log in their credentials.
 * Create a file which you can give it any name.
 * Then y6ou'll be able to use it.
 ## Known Bugs
-Slight problem problem when working with on the two classes.
+Slight problem problem when working on the two classes.
 ## Technologies Used
 Python version 3.6
 ## Support and contact details

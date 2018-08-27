@@ -1,78 +1,114 @@
-#!/usr/bin/env python3.6
-import pyperclip
-class Login:
-    """
-    Class that generates new instances of login
-    """
-    login_list =[]
-    def __init__(self,first_name,last_name,phone_number,email,password):
-        self.first_name = first_name
-        self.last_name = last_name
-        self.phone_number = phone_number
-        self.email = email
-        self.password=password
-    def save_login(self):
-        '''
-        save_login method saves user objects into login_list
-        '''
-        Login.login_list.append(self)
-    def delete_login(self):
-        '''
-        delete_login method deletes a saved login from the login_list
-        '''
-        Login.login_list.remove(self)
-    @classmethod
-    def find_by_number(cls,number):
-        '''
-        Method that takes in a number and returns a login that matches that number.
+from user import Login, AddUser
+# from run import Login,
+def create_login(fname,lname,phone,email,password):
+    '''
+    Function to create a new login#
+    '''
+    new_login = Login(fname,lname,phone,email,password)
+    return new_login
+def save_login(login):
+    '''
+    Function to save login
+    '''
+    login.save_login()
 
-        Args:
-        number: Phone number to search for
-        Returns :
-        Login of person that matches the number.
-        '''
+def createacc(username,password):
+    new_user = AddUser(username,password)
+    return new_user
 
-        for login in cls.login_list:
-            if login.phone_number == number:
-                return login
-    @classmethod
-    def login_exist(cls,number):
-        '''
-        Method that checks if a login exists from the login list.
-        Args:
-            number: Phone number to search if it exists
-        Returns :
-            Boolean: True or false depending if the contact exists
-        '''
-        for login in Login.login_list:
-            if login.phone_number == number:
-                    return True
+def register(user):
+    AddUser.add_user(user)
 
-        return False
-    @classmethod
-    def copy_credentials(cls,number):
-        login_found=Login.find_by_number(number)
-        pyperclip.copy(login_found.credentials)
-        '''
-        method that returns the login_list
-        '''
-        return cls.login_list
-    def display_login():
-        '''
-        Function that returns all the saved login
-        '''
-        return Login.login_list
+# def del_login(login):
+#     '''
+#     Function to delete login
+#     '''
+#     login.delete_contact()
+# def find_user(number):
+#     '''
+#     Function that finds a login by number and returns the login
+#     '''
+#     return Login.find_by_number(number)
+# def check_existing_user(number):
+#     '''
+#     Function that check if a contact exists with that number and return a Boolean
+#     '''
+#     return Login.login_exist(number)
+#
+def display_accounts():
+    '''
+    Function that returns all the saved login
+    '''
+    return Login.display_login()
+def main():
+    print("Hello welcome to twitter.")
+    user_name=input()
+    print(f"Hello{user_name}.Login")
+    print('\n')
+    while True:
+        print("Use these short codes:signup -'create account' ca -create new account,da -display accounts,ta -save account,ra -password,ex -exit the account")
+        short_code=input().lower()
+        if short_code == 'signup':
+            username= input('enter name: ')
+            userpassword = input('enter pass: ')
+            register(createacc(username,userpassword))
+        elif short_code=='ca':
+            print("New Account")
+            print("-"*10)
+            print("First name .....")
+            f_name=input()
+            print("Last name....")
+            l_name=input()
+            print("Phone number....")
+            p_number=input()
+            print("Email address....")
+            e_address=input()
+            print("Password....")
+            print("-"*8)
+            password=input()
+            save_login(create_login(f_name,l_name,p_number,e_address,password))
+            print('\n')
+            print(f"New User{f_name}{l_name}created")
+            print('\n')
+        elif short_code== 'da':
+            if display_accounts():
+                print("Twitter,Facebook,Instagram")
+                print('\n')
+                for account in Login.login_list:
+                    print(f"{account.first_name}{account.last_name}.....{account.phone_number}")
+                    print('\n')
+            else:
+                print('\n')
+                print("You dont seem to have any account saved yet")
+                print('\n')
+        elif short_code=='ta':
+            print("Enter your account name")
+            search_number=input()
+            if check_existing_name(search_name):
+                search_user=find_user(search_name)
+                print(f"{search_user.first_name}{search_user.last_name}")
+                print('-' * 9)
+                print(f"Phone number.......{search_user.phone_number}")
+                print(f"Email address.......{search_user.email}")
+            else:
+                print("That username does not exist")
+        elif short_code=='ra':
+            print("Enter your password")
+            search_login=input()
+            if check_existing_user(search_login):
+                search_user=find_user(search_login)
+                print(f"{search_user.first_name}")
+                print('-'*4)
+                print(f"Phone number.....{serch_user.phone_number}")
+                print(f"Email address....{search_user.email}")
+            else:
+                print("That password does not exist")
 
-    def add_user(self):
-        Login.login_list.append(self)
-
-class AddUser():
-    user_list=[]
-    def __init__(self,username,password):
-        self.username = username
-        self.password =password
-
-    def add_user(self):
-        AddUser.user_list.append(self)
-# if __name__=='__main__':
-#     main()
+        elif short_code == "ex":
+            print("Bye .......")
+            break
+        else:
+            print("I really didn't get that. Please use the short codes")
+if __name__=='__main__':
+    main()
+s
