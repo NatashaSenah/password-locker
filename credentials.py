@@ -1,6 +1,6 @@
 #!/usr/bin/env python3.6
 
-from run import Login
+from run import Login, AddUser
 def create_login(fname,lname,phone,email,password):
     '''
     Function to create a new login

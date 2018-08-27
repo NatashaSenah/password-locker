@@ -62,5 +62,17 @@ class Login:
         Function that returns all the saved login
         '''
         return Login.login_list
+
+    def add_user(self):
+        Login.login_list.append(self)
+
+class AddUser():
+    user_list=[]
+    def __init__(self,username,password):
+        self.username = username
+        self.password =password
+
+    def add_user(self):
+        AddUser.user_list.append(self)
 # if __name__=='__main__':
 #     main()

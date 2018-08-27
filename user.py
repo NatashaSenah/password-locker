@@ -1,5 +1,5 @@
 # from user import Login
-from run import Login
+from run import Login, AddUser
 def create_login(fname,lname,phone,email,password):
     '''
     Function to create a new login
@@ -11,6 +11,14 @@ def save_login(login):
     Function to save login
     '''
     login.save_login()
+
+def createacc(username,password):
+    new_user = AddUser(username,password)
+    return new_user
+
+def register(user):
+    AddUser.add_user(user)
+
 # def del_login(login):
 #     '''
 #     Function to delete login
@@ -40,7 +48,11 @@ def main():
     while True:
         print("Use these short codes:ca -create new account,da -display accounts,ta -save account,ra -password,ex -exit the account")
         short_code=input().lower()
-        if short_code=='ca':
+        if short_code == 'signup':
+            username= input('enter name')
+            userpassword = input('enter pass')
+            register(createacc(username,userpassword))
+        elif short_code=='ca':
             print("New Account")
             print("-"*10)
             print("First name .....")
