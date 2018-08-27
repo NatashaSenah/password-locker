@@ -34,7 +34,7 @@ def display_accounts():
     '''
     return Login.display_login()
 def main():
-    print("Hello welcome to twitter.")
+    print("Hello welcome.")
     user_name=input()
     print(f"Hello{user_name}.Login")
     print('\n')
