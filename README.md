@@ -12,7 +12,7 @@ Slight problem problem when working on the two classes.
 ## Technologies Used
 Python version 3.6
 ## Support and contact details
-Call:0766889933/E-mail:tashsenah@gmail.com
+Call:0766889933
 ### License
 Copyright 2018 Natasha Senah
 
